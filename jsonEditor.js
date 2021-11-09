@@ -1,3 +1,4 @@
+//import node
 dateArray = []
 eventArray = []
 window.onload = function(){
@@ -76,7 +77,7 @@ function createFile()
 
 
     var dictstring = JSON.stringify(obj);
-    console.log(dictstring)
+
     //var fs = require('fs');
     //fs.writeFile("events.json", dictstring, function(err, result) {
     //if(err) console.log('error', err);
