@@ -69,16 +69,17 @@ function createFile()
         if (index > -1)
         {
            obj[i] = eventArray[index] 
-           console.log("found")
+           //console.log("found")
         }
     }
-    console.log(obj);
+
 
 
     var dictstring = JSON.stringify(obj);
-    var fs = require('fs');
-    fs.writeFile("events.json", dictstring, function(err, result) {
-    if(err) console.log('error', err);
-});
+    console.log(dictstring)
+    //var fs = require('fs');
+    //fs.writeFile("events.json", dictstring, function(err, result) {
+    //if(err) console.log('error', err);
+//});
 }
 
