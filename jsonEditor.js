@@ -22,13 +22,13 @@ if (pos != -1)
     dateArray.splice(pos,1);
     eventArray.splice(pos,1);
 }
-if (date <= 31)
+if (date <= 31 && date > 0)
     dateArray.push(date)
 //console.log(dateArray)
 
 var event = document.getElementById("title").value
 //console.log(event)
-if (date <= 31)
+if (date <= 31 && date > 0)
     eventArray.push(event)
 //console.log(eventArray)
 }
