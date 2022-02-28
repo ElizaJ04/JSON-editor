@@ -1,31 +1,28 @@
-//import node
-dateArray = []
-eventArray = []
+
+dateArray = [] 
+eventArray = [] // sets up the parallel arrays of the date and event
 window.onload = function(){
     const form = document.querySelector('form')
     form.addEventListener('submit', event => {
       // submit event detected
-      event.preventDefault()
-      printRes()
-      updatePage()
+      event.preventDefault() //allows for submit button to work. In hindsight, I could have used a regular button. Oh well
+      addEvent() //adds event to array
+      updatePage() //shows array changes on the main page
 
     })
 };
-function printRes()
+function addEvent() 
 {
-var date = parseInt(document.getElementById("date").value)
-//console.log(date)
-pos = dateArray.indexOf(date)
+var date = parseInt(document.getElementById("date").value) //gets the value of the date input
+var pos = dateArray.indexOf(date) // checks to see if the date already has been added 
 if (pos != -1)
 {
-    console.log("found")
-
     dateArray.splice(pos,1);
-    eventArray.splice(pos,1);
+    eventArray.splice(pos,1); // if it was located, remove the old date from the list
 }
-var event = document.getElementById("title").value
-if (date <= 31 && date > 0 && event != "")
-    dateArray.push(date)
+var event = document.getElementById("title").value //gets the name of the event
+if (date <= 31 && date > 0 && event != "") //checks to make sure the date is in an acceptable range
+    dateArray.push(date) //adds the date and event in parallel
     eventArray.push(event)
 }
 function updatePage()
