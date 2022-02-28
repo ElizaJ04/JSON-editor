@@ -74,7 +74,7 @@ function createFile()
         }
     }
 
-    download('schedule.json', JSON.stringify(obj));
+    download('events.json', JSON.stringify(obj));
     console.log(dictstring)
     //var fs = require('fs');
     //fs.writeFile("events.json", dictstring, function(err, result) {
