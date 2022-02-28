@@ -19,18 +19,14 @@ pos = dateArray.indexOf(date)
 if (pos != -1)
 {
     console.log("found")
+
     dateArray.splice(pos,1);
     eventArray.splice(pos,1);
 }
-if (date <= 31 && date > 0)
-    dateArray.push(date)
-//console.log(dateArray)
-
 var event = document.getElementById("title").value
-//console.log(event)
-if (date <= 31 && date > 0)
+if (date <= 31 && date > 0 && event != "")
+    dateArray.push(date)
     eventArray.push(event)
-//console.log(eventArray)
 }
 function updatePage()
 {
@@ -42,6 +38,8 @@ function updatePage()
         dateString += dateArray[i] + ": " + eventArray[i] + "<br>";
     }
     document.getElementById("day").innerHTML = dateString;
+    document.getElementById("title").value = "";
+    document.getElementById("date").value = "";
     console.log("test")
 }
 
