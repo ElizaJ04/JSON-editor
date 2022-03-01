@@ -28,57 +28,34 @@ if (date <= 31 && date > 0 && event != "") //checks to make sure the date is in 
 function updatePage()
 {
     var dateString = "";
-    for (var i = 0; i < dateArray.length; i++)
-    {
-
-        console.log(dateArray)
-        dateString += dateArray[i] + ": " + eventArray[i] + "<br>";
+    for (var i = 0; i < dateArray.length; i++){
+        dateString += dateArray[i] + ": " + eventArray[i] + "<br>"; //creates a string for each date/event pair
     }
     document.getElementById("day").innerHTML = dateString;
-    document.getElementById("title").value = "";
+    document.getElementById("title").value = ""; //clears input boxes for minor QOL
     document.getElementById("date").value = "";
-    console.log("test")
 }
-
 var obj = 
 {
     "comment": "Each number is a day of the month, this document will be updated each month. LEAVE ANY DAY THAT IS BLANK AS NULL;",
-    "comment2":"version number is year.monthDay"
+    "comment2":"version number is year.monthDay" //comments exist in the object created 
 }
-function createFile()
+function createFile() //creates file
 {
-    const d = new Date();
-    var day = d.getDate();
-    var month =(d.getMonth() + 1) * 100
-    var year = d.getFullYear()*10000
-    version = day + month + year;
-    version /= 10000
-    // version 
-    console.log(version)
-
-
-    obj["version"] = version;
-    //console.log(obj);
-    for (var i = 1; i <= 31; i++)
+    for (var i = 1; i <= 31; i++) 
     {
         var index = dateArray.indexOf(i);
-        if (index > -1)
+        if (index > -1) //checks if an event has been created at that day. Not the best implementation. Too Bad.
         {
            obj[i] = eventArray[index] 
-           //console.log("found")
         }
     }
 
     download('events.json', JSON.stringify(obj));
-    console.log(dictstring)
-    //var fs = require('fs');
-    //fs.writeFile("events.json", dictstring, function(err, result) {
-    //if(err) console.log('error', err);
-//});
 }
 
 
-function download(filename, text) {
+function download(filename, text) { // i am trusting the internet. Upon closer inspection it is terrible. too bad.
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);
